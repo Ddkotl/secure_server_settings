@@ -57,3 +57,15 @@ sudo fail2ban-client status sshd
 sudo apt update && sudo apt upgrade -y
 sudo apt install unattended-upgrades
 sudo dpkg-reconfigure --priority=low unattended-upgrades
+
+##############################################################################################################
+#add admin user , no use root
+sudo adduser --ingroup admin admin
+sudo usermode -aG sudo admin
+mkdir -p /home/admin/.ssh
+cp /root/.ssh/authorized_keys /home/admin/.ssh/
+chmod 700 /home/admin/.ssh
+chmod 600 /home/admin/.ssh/authorized_keys
+chown -R admin:admin /home/admin/.ssh
+su - admin
+
