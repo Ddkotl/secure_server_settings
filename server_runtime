@@ -1,0 +1,28 @@
+# установка node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+nvm install --lts
+
+# Установка глобальных пакетов через NPM
+npm install -g pnpm@latest
+npm install -g bun
+npm install pm2 -g
+npm install -g cloudflared
+
+# Настройка Git
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+
+#установка докера 
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo apt-get install docker-compose-plugin
+
+#создание свап файла
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+#вариант с установкой playwright если глючит
+node node_modules/playwright-core/cli.js install
+
