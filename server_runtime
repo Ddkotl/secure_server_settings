@@ -26,3 +26,6 @@ sudo swapon /swapfile
 #вариант с установкой playwright если глючит
 node node_modules/playwright-core/cli.js install
 
+#nginx
+sudo apt install nginx
+sudo systemctl enable nginx
