@@ -1,0 +1,5 @@
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d qi-war.minigms.ru
+
+sudo systemctl status certbot.timer
+certbot renew --dry-run
