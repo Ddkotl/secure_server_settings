@@ -1,0 +1,46 @@
+#очистка всего
+docker system prune -a --volume
+#установка докера 
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo apt-get install docker-compose-plugin
+
+#информация
+docker ps #все работающие контейнеры
+docker ps -a #все существующие контейнеры
+docker images #все имэджи
+docker inspect [idcont] #инфа о контейнере
+docker stats [idcont] #потребление ресурсов контейнером
+docker logs [idcont] #последние логи
+-f #live log
+
+
+#действия с контейнерами
+docker [comand] [flag] [idcont] [comand in container]
+docker run [img]
+-p [порт сервера]:[порт контейнера]
+-v [путь на сервере]:[путь в контейнере]
+-e #задаёт переменные
+-d #режим димона
+--rm #после исполнения команд внутри контейнер удалить
+--name #задает имя
+--net #указывает сеть
+docker start [idcont]
+docker pause [idcont]
+docker unpause [idcont]
+docker stop [idcont]
+docker kill [i
+dcont]
+docker rm [idcont]
+docker exec -it [idcont] /bin/bash #заходим внутрь контейнера
+
+#действия с имиджем
+docker pull [имя] #скачивает образ
+docker rmi [имя или id] #удалить имэдж
+
+#действия с сетями
+docker network create --drive bridge  [имя]
+docker network connect [сеть] [idcont]
+
+#действия с волюмом 
+docker volume rm [имя]
